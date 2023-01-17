@@ -6,7 +6,6 @@ import { PokemonGlobalInfoComponent } from './pokemon-global-info/pokemon-global
 import { HeaderComponent } from './header/header.component';
 
 
-
 @NgModule({
   declarations: [
     PokemonListComponent,
