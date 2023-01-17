@@ -1,8 +1,11 @@
+// ANGULAR
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppComponent } from './app.component';import { ComponentsModule } from './components/components.module';
+// COMPONENTS
+import { AppComponent } from './app.component';
+// MODULES
+import { ComponentsModule } from './components/components.module';
 
 
 @NgModule({
@@ -11,7 +14,8 @@ import { AppComponent } from './app.component';import { ComponentsModule } from 
   ],
   imports: [
     BrowserModule,
-    ComponentsModule
+    ComponentsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

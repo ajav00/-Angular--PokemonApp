@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { PokemonItemComponent } from './pokemon-item/pokemon-item.component';
 import { PokemonGlobalInfoComponent } from './pokemon-global-info/pokemon-global-info.component';
+import { HeaderComponent } from './header/header.component';
 
 
 
@@ -10,7 +11,8 @@ import { PokemonGlobalInfoComponent } from './pokemon-global-info/pokemon-global
   declarations: [
     PokemonListComponent,
     PokemonItemComponent,
-    PokemonGlobalInfoComponent
+    PokemonGlobalInfoComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule
@@ -18,7 +20,8 @@ import { PokemonGlobalInfoComponent } from './pokemon-global-info/pokemon-global
   exports: [
     PokemonListComponent,
     PokemonItemComponent,
-    PokemonGlobalInfoComponent
+    PokemonGlobalInfoComponent,
+    HeaderComponent
   ]
 })
 export class ComponentsModule { }
