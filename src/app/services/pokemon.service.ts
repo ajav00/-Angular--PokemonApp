@@ -15,8 +15,8 @@ export class PokemonService {
 
   constructor(private http: HttpClient) { }
 
-  getAllPokemon(limit: number, page: number): Observable<PokemonResponseInterface[]>{
-    return this.http.get(`${baseUrl}pokemon?offset=${limit * (page - 1)}&limit=${limit * page}`).pipe(map(resp => <PokemonResponseInterface[]>resp));
+  getAllPokemon(limit: number, page: number): Observable<PokemonResponseInterface>{
+    return this.http.get(`${baseUrl}pokemon?offset=${limit * (page - 1)}&limit=${limit * page}`).pipe(map(resp => <PokemonResponseInterface>resp));
   }
 
   getPokemonByName(name: string): Observable<PokemonItem>{

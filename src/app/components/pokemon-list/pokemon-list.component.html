@@ -1,10 +1,22 @@
-<table>
-    <tr>
-        <th>Index</th>
-        <th>Name</th>
-      </tr>
-      <tr *ngFor="let item of dataSource">
-        <td>{{ item.position }}</td>
-        <td>{{ item.name }}</td>
-      </tr>
-</table>
+<div *ngIf="!load">
+  <table>
+      <tr>
+          <th>Index</th>
+          <th>Nombre</th>
+          <th>More Information</th>
+        </tr>
+        <tr *ngFor="let item of listItems; let i = index" (click)="selectPokemon(item.name)">
+            <td>{{ i }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.url }}</td>
+        </tr>
+  </table>
+  <!-- <div class="page">
+    <div *ngFor="let index of listItems; let i = index" (click)="changePage()">
+      <p>{{ index }}</p>
+    </div>
+  </div> -->
+</div>
+<div *ngIf="load">
+  <p>LOADER</p>
+</div>

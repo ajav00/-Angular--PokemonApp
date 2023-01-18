@@ -1,4 +1,4 @@
 <app-header></app-header>
-<app-pokemon-list></app-pokemon-list>
+<app-pokemon-list [load]="pokemonListLoader | async" [response]="pokemonList" [currentPage]="page" [currentStep]="step" (stepEvent)="setStep($event)" (pageEvent)="setPage($event)" (pokemonEvent)="selectPokemon($event)"></app-pokemon-list>
 <app-pokemon-item></app-pokemon-item>
 <app-pokemon-global-info></app-pokemon-global-info>

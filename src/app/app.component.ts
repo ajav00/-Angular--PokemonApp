@@ -14,7 +14,7 @@ export class AppComponent implements OnInit, OnDestroy {
   
   title = 'pokemon-app';
   
-  public pokemonList: PokemonResponseInterface[];
+  public pokemonList: PokemonResponseInterface;
   public pokemonSelected: PokemonItem;
 
   // Subscription
@@ -25,16 +25,19 @@ export class AppComponent implements OnInit, OnDestroy {
   public pokemonListLoader: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
   public pokemonItemLoader: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
 
-  private step = 20;
+  public step = 20;
+  public page = 1;
 
   constructor(private pokemonService: PokemonService, private router: Router, private activatedRoute: ActivatedRoute){ }
 
   ngOnInit(): void{
     this.queryParamsSub$ = this.activatedRoute.queryParamMap.pipe(
-      tap(_ => this.pokemonListLoader.next(true)),
-      switchMap(({params}: any) => this.pokemonService.getAllPokemon(params.step ?? this.step, params.page ?? 1)),
+      tap((_ : any) => this.pokemonListLoader.next(true)),
+      tap(({params}) => this.step = params.step ?? this.step),
+      tap(({params}) => this.page = params.page ?? this.page),
+      switchMap(() => this.pokemonService.getAllPokemon(this.step, this.page)),
       tap(_ => this.pokemonListLoader.next(false)),
-    ).subscribe((pokemon: PokemonResponseInterface[]) => this.pokemonList = pokemon );
+    ).subscribe((pokemon: PokemonResponseInterface) => this.pokemonList = pokemon );
   }
 
   ngOnDestroy(): void {
@@ -52,4 +55,6 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   setStep(step: number){ this.step = step}
+
+  setPage(page: number){ this.page = page}
 }
