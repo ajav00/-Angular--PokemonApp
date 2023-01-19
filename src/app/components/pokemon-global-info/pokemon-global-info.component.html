@@ -1,1 +1,9 @@
-<p>pokemon-global-info works!</p>
+<h2>RESUMEN DE LA PAGINA ACTUAL</h2>
+<div *ngIf="!load">
+    <ul>
+        <li *ngFor="let letter of listKeys"> {{ letter + '(' + (pokemonDictionary[letter]).length + ')'}}</li>
+    </ul>
+</div>
+<div *ngIf="load">
+    <p>LOADER</p>
+</div>

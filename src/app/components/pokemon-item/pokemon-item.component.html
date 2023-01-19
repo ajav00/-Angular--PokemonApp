@@ -1,10 +1,110 @@
-<div>
+<div *ngIf="!pokemonData">
+    <p>SLECCIONE UN POKEMON PARA VER LA INFORMACIÓN</p>
+</div>
+<div *ngIf="!load && pokemonData">
     <div>
         <div>
-            <p><strong>Property Pokemon</strong></p>
+            <p><strong>Habilidades</strong></p>
         </div>
         <div>
-            <p>RESPONSE PROPERTY</p>
+            <ul>
+                <li *ngFor="let item of pokemonData.abilities">{{ item }}</li>
+            </ul>
         </div>
+    </div> 
     <div>
+        <div>
+            <div>
+                <p><strong>Puntos de experiencia</strong></p>
+            </div>
+            <div>
+                <p>{{ pokemonData.base_experience }}</p>
+            </div>
+        <div>
+    </div> 
+    <div>
+        <div>
+            <div>
+                <p><strong>Formas</strong></p>
+            </div>
+            <ul>
+                <li *ngFor="let item of pokemonData.forms">{{ item }}</li>
+            </ul>
+        <div>
+    </div>
+    <div>
+        <div>
+            <div>
+                <p><strong>Indices de Juego</strong></p>
+            </div>
+            <ul>
+                <li *ngFor="let item of pokemonData.game_indices">{{ item }}</li>
+            </ul>
+        <div>
+    </div>
+    <div>
+        <div>
+            <div>
+                <p><strong>Altura</strong></p>
+            </div>
+            <div>
+                <p>{{ pokemonData.height }}</p>
+            </div>
+        <div>
+    </div>
+    <div>
+        <div>
+            <div>
+                <p><strong>Movimientos</strong></p>
+            </div>
+            <ul>
+                <li *ngFor="let item of pokemonData.moves">{{ item }}</li>
+            </ul>
+        <div>
+    </div>
+    <div>
+        <div>
+            <div>
+                <p><strong>Nombre</strong></p>
+            </div>
+            <div>
+                <p>{{ pokemonData.name }}</p>
+            </div>
+        <div>
+    </div>
+    <div>
+        <div>
+            <div>
+                <p><strong>Especie</strong></p>
+            </div>
+            <div>
+                <p>{{ pokemonData.specie }}</p>
+            </div>
+        <div>
+    </div>
+    <div>
+        <div>
+            <div>
+                <p><strong>Estaditicas</strong></p>
+            </div>
+            <ul>
+                <li *ngFor="let item of pokemonData.stats">
+                    {{ 'Característica: ' + item.name + ' | Puntos: ' + item.base_stat + '| Fuerza: ' + item.effort }}
+                </li>
+            </ul>
+        <div>
+    </div>
+    <div>
+        <div>
+            <div>
+                <p><strong>Peso</strong></p>
+            </div>
+            <div>
+                <p>{{ pokemonData.weight }}</p>
+            </div>
+        <div>
+    </div>
+</div> 
+<div *ngIf="load">
+    <p>LOADER</p>
 </div>

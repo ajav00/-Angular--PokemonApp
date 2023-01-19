@@ -1,20 +1,21 @@
 export interface PokemonItem {
-    abilities: any[],
+    abilities: {ability: NameUrlInterface, is_hidden: boolean, slot: number}[],
     base_experience: number,
-    forms: any[],
-    game_indices: any[],
+    forms: NameUrlInterface[],
+    game_indices: {game_index: number, version: NameUrlInterface}[],
     height: number,
-    held_items: any[],
     id: number,
     is_default: boolean,
     location_area_encounters: string,
-    moves: any[],
+    moves: {move: NameUrlInterface}[],
     name: string,
     order: number,
-    past_types: any[],
-    species: any,
-    sprites: any[],
-    stats: any[],
-    types: any[],
+    species: NameUrlInterface,
+    stats: {base_stat: number, effort: number, stat: NameUrlInterface}[],
+    types: {slot: number, type: NameUrlInterface}[],
     weight: number
+}
+
+interface NameUrlInterface{
+    name: string, url:string
 }
