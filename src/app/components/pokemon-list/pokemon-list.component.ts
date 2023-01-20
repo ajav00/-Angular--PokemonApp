@@ -9,6 +9,7 @@ import { PokemonResponseInterface } from 'src/app/interfaces/response.interface'
 export class PokemonListComponent {
   
   public listItems: {name: string, url: string}[] = [];
+  public pages: number[];  
   public total: number = 0;
   
   public _response: PokemonResponseInterface;
@@ -20,6 +21,7 @@ export class PokemonListComponent {
     if(value){
       this.total = value.count;
       this.listItems = value.results;
+      this.pages = [...new Array(Math.ceil(this.total / this.currentStep))];
     }
   }
   

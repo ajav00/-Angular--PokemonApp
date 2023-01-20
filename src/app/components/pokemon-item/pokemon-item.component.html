@@ -1,108 +1,96 @@
-<div *ngIf="!pokemonData">
-    <p>SLECCIONE UN POKEMON PARA VER LA INFORMACIÓN</p>
+<div *ngIf="!pokemonData" class="default-info">
+    <p>SELECCIONE UN POKEMON PARA VER LA INFORMACIÓN</p>
 </div>
-<div *ngIf="!load && pokemonData">
-    <div>
-        <div>
+<div *ngIf="!load && pokemonData" class="pokemon-info">
+    <div class="pokemon-title">
+        <h2>{{ pokemonData.name }}</h2>
+    </div>
+    <div class="pokemon-data">
+        <div class="title-item">
             <p><strong>Habilidades</strong></p>
         </div>
-        <div>
-            <ul>
-                <li *ngFor="let item of pokemonData.abilities">{{ item }}</li>
-            </ul>
+        <div class="content-columns">
+            <p *ngFor="let item of pokemonData.abilities | slice:0:12">{{ item }}</p>
+            <p *ngIf="pokemonData.abilities.length > 12"> * Existen otros {{ pokemonData.abilities.length - 12 }} items.</p>
         </div>
     </div> 
-    <div>
+    <div class="pokemon-data">
         <div>
-            <div>
+            <div class="title-item">
                 <p><strong>Puntos de experiencia</strong></p>
             </div>
-            <div>
+            <div class="content-columns">
                 <p>{{ pokemonData.base_experience }}</p>
             </div>
         <div>
     </div> 
-    <div>
-        <div>
-            <div>
-                <p><strong>Formas</strong></p>
-            </div>
-            <ul>
-                <li *ngFor="let item of pokemonData.forms">{{ item }}</li>
-            </ul>
-        <div>
+    <div class="pokemon-data">
+        <div class="title-item">
+            <p><strong>Formas</strong></p>
+        </div>
+        <div class="content-columns">
+            <p *ngFor="let item of pokemonData.forms | slice:0:12">{{ item }}</p>
+            <p *ngIf="pokemonData.forms.length > 12"> * Existen otros {{ pokemonData.forms.length - 12 }} items.</p>
+        </div>
     </div>
-    <div>
-        <div>
-            <div>
-                <p><strong>Indices de Juego</strong></p>
-            </div>
-            <ul>
-                <li *ngFor="let item of pokemonData.game_indices">{{ item }}</li>
-            </ul>
-        <div>
+    <div class="pokemon-data">
+        <div class="title-item">
+            <p><strong>Indices de Juego</strong></p>
+        </div>
+        <div class="content-columns">
+            <p *ngFor="let item of pokemonData.game_indices | slice:0:12">{{ item }}</p>
+            <p *ngIf="pokemonData.game_indices.length > 12"> * Existen otros {{ pokemonData.game_indices.length - 12 }} items.</p>
+        </div>
     </div>
-    <div>
-        <div>
-            <div>
-                <p><strong>Altura</strong></p>
-            </div>
-            <div>
-                <p>{{ pokemonData.height }}</p>
-            </div>
-        <div>
+    <div class="pokemon-data">
+        <div class="title-item">
+            <p><strong>Altura</strong></p>
+        </div>
+        <div class="content-columns">
+            <p>{{ pokemonData.height }}</p>
+        </div>
     </div>
-    <div>
-        <div>
-            <div>
-                <p><strong>Movimientos</strong></p>
-            </div>
-            <ul>
-                <li *ngFor="let item of pokemonData.moves">{{ item }}</li>
-            </ul>
-        <div>
+    <div class="pokemon-data">
+        <div class="title-item">
+            <p><strong>Movimientos</strong></p>
+        </div>
+        <div class="content-columns">
+            <p *ngFor="let item of pokemonData.moves | slice:0:12">{{ item }}</p>
+            <p *ngIf="pokemonData.moves.length > 12"> * Existen otros {{ pokemonData.moves.length - 12 }} items.</p>
+        </div>
     </div>
-    <div>
-        <div>
-            <div>
-                <p><strong>Nombre</strong></p>
-            </div>
-            <div>
-                <p>{{ pokemonData.name }}</p>
-            </div>
-        <div>
+    <div class="pokemon-data">
+        <div class="title-item">
+            <p><strong>Especie</strong></p>
+        </div>
+        <div class="content-columns">
+            <p>{{ pokemonData.specie }}</p>
+        </div>
     </div>
-    <div>
-        <div>
+    <div class="pokemon-data">
+        <div class="title-item">
+            <p><strong>Estadísticas</strong></p>
+        </div>
+        <div class="stats">
             <div>
-                <p><strong>Especie</strong></p>
+                <p> <strong> Característica </strong> </p>
+                <p> <strong> Puntos </strong> </p>
+                <p> <strong> Fuerza </strong> </p>
             </div>
-            <div>
-                <p>{{ pokemonData.specie }}</p>
+            <div *ngFor="let item of pokemonData.stats | slice:0:12">
+                <p>{{ item.name }}</p>
+                <p>{{ item.base_stat }}</p>
+                <p>{{ item.effort }}</p>
             </div>
-        <div>
+        </div>
     </div>
-    <div>
-        <div>
-            <div>
-                <p><strong>Estaditicas</strong></p>
-            </div>
-            <ul>
-                <li *ngFor="let item of pokemonData.stats">
-                    {{ 'Característica: ' + item.name + ' | Puntos: ' + item.base_stat + '| Fuerza: ' + item.effort }}
-                </li>
-            </ul>
-        <div>
-    </div>
-    <div>
-        <div>
-            <div>
-                <p><strong>Peso</strong></p>
-            </div>
-            <div>
-                <p>{{ pokemonData.weight }}</p>
-            </div>
-        <div>
+    <div class="pokemon-data">
+        <div class="title-item">
+            <p><strong>Peso</strong></p>
+        </div>
+        <div class="content-columns">
+            <p>{{ pokemonData.weight }}</p>
+        </div>
     </div>
 </div> 
 <div *ngIf="load">

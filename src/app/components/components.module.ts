@@ -5,6 +5,7 @@ import { PokemonItemComponent } from './pokemon-item/pokemon-item.component';
 import { PokemonGlobalInfoComponent } from './pokemon-global-info/pokemon-global-info.component';
 import { HeaderComponent } from './header/header.component';
 import { LoaderComponent } from './loader/loader.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -13,10 +14,11 @@ import { LoaderComponent } from './loader/loader.component';
     PokemonItemComponent,
     PokemonGlobalInfoComponent,
     HeaderComponent,
-    LoaderComponent
+    LoaderComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     PokemonListComponent,

@@ -1,0 +1,17 @@
+.container{
+    margin-inline: 20px;
+    margin-block: 20px;
+    gap: 10px;
+    
+    .pokemon-data{
+        display: grid;
+        grid-template-columns: 66% 33%;
+        gap: 1%;
+        margin-bottom: 5px;
+    }
+
+    app-pokemon-list, app-pokemon-item{
+        border: 2px solid #1A120B;
+        border-radius: 5px;
+    }
+}
