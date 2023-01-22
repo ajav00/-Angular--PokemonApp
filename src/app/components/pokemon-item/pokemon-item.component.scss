@@ -26,9 +26,16 @@
         }
         .content-columns{
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             padding: 10px 20px;
             background-color: $sky-blue;
+            text-align: start;
+        }
+        @media only screen and (min-width: $sm) {
+            .content-columns{
+                grid-template-columns: 1fr 1fr;
+                text-align: center;
+            }
         }
         .stats{
             table{

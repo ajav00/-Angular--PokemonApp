@@ -13,12 +13,12 @@
         <thead>
           <th>Index</th>
           <th>Nombre</th>
-          <th>Más información</th>
+          <th class="only-md">Más información</th>
         </thead>
-        <tr *ngFor="let item of listItems; let i = index" (click)="selectPokemon(item.name)">
+        <tr *ngFor="let item of listItems; let i = index" (click)="selectPokemon(item.name)"  [ngClass]="{'row-active': pokemonSelected == item.name}">
           <td>{{(((currentPage - 1) * currentStep) + i + 1) }}</td>
           <td>{{ item.name }}</td>
-          <td>{{ item.url }}</td>
+          <td class="only-md">{{ item.url }}</td>
         </tr>
     </table>
     <div class="enumeration">

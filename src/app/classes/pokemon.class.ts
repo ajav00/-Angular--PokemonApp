@@ -16,7 +16,7 @@ export class PokemonClass {
     
     constructor(pokemon: PokemonItem){
         this.abilities = pokemon.abilities.map(ab => ab.ability.name);
-        this.base_experience = pokemon.base_experience;
+        this.base_experience = pokemon.base_experience ?? 0;
         this.forms = pokemon.forms.map(form => form.name);
         this.game_indices = pokemon.game_indices.map(gamer => gamer.version.name);
         this.height = pokemon.height;

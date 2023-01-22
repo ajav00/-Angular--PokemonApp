@@ -14,11 +14,18 @@
     .controls{
         margin: 0 30px;
         .search{
-            display: flex;
-            gap: 20px;
+            display: block;
+            text-align: center;
             input{
                 width: 100%;
                 max-width: 400px;
+            }
+        }
+        @media only screen and (min-width: $sm) {
+            .search{
+                display: flex;
+                gap: 20px;
+                text-align: start;
             }
         }
     }
@@ -38,13 +45,26 @@
             padding: 7px;
             text-align: center;
         }
-    
+        .only-md{
+            display: none;
+        }
+        @media only screen and (min-width: $md) {
+            .only-md{
+                display: block;
+            }
+        }
+        
+        .row-active{
+            tr{
+                background-color: $sky-blue;
+            }
+        }
+
         tr{
             cursor: pointer;
             background-color: $light;
             &:hover{
                 background-color: $sky-blue;
-    
             }
         }   
     }

@@ -11,6 +11,7 @@ export class PokemonListComponent {
   public listItems: {name: string, url: string}[] = [];
   public pages: number[];  
   public total: number = 0;
+  public pokemonSelected: string;
   
   public _response: PokemonResponseInterface;
   get response(): PokemonResponseInterface {
@@ -45,6 +46,7 @@ export class PokemonListComponent {
 
 
   selectPokemon(name: string){
+    this.pokemonSelected = name;
     this.pokemonEvent.emit(name);
   }
 

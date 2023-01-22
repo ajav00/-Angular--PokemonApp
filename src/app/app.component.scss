@@ -1,3 +1,5 @@
+@import "variables";
+
 .container{
     margin-inline: 20px;
     margin-block: 20px;
@@ -5,8 +7,14 @@
     
     .pokemon-data{
         display: grid;
-        grid-template-columns: 66% 33%;
+        grid-template-columns: 1fr;
         gap: 1%;
         margin-bottom: 5px;
+    }
+    @media only screen and (min-width: $lg) {
+        .pokemon-data{
+            display: grid;
+            grid-template-columns: 66% 33%;
+        }
     }
 }
