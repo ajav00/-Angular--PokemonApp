@@ -1,8 +1,12 @@
 <app-header></app-header>
 <div class="container">
     <div class="pokemon-data">
-        <app-pokemon-list [load]="pokemonListLoader | async" [response]="pokemonList" [currentPage]="page" [currentStep]="step" (stepEvent)="setStep($event)" (pageEvent)="setPage($event)" (pokemonEvent)="selectPokemon($event)"></app-pokemon-list>
-        <app-pokemon-item [load]="pokemonItemLoader | async" [pokemonData]="pokemonSelected"></app-pokemon-item>
+        <div>
+            <app-pokemon-list [load]="pokemonListLoader | async" [response]="pokemonList" [currentPage]="page" [currentStep]="step" (stepEvent)="setStep($event)" (pageEvent)="setPage($event)" (pokemonEvent)="selectPokemon($event)"></app-pokemon-list>
+        </div>
+        <div>
+            <app-pokemon-item [load]="pokemonItemLoader | async" [pokemonData]="pokemonSelected"></app-pokemon-item>
+        </div>
     </div>
     <app-pokemon-global-info [load]="pokemonListLoader | async" [pokemonDictionary]="pokemonDictionary"></app-pokemon-global-info>
 </div>

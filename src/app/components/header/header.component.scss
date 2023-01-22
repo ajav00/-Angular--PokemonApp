@@ -1,6 +1,17 @@
 .header{
-    background-color: #1A120B;
-    img {
-        width: 100px;
+    background-color: #06283D;
+    text-align: center;
+    &-content{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        h1{
+            color: #FEFBF6;
+        }
+        img{
+            width: 30px;
+        }    
     }
 }

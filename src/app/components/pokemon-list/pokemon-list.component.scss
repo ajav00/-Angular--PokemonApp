@@ -1,47 +1,83 @@
-.enumeration{
-    margin: 10px;
-    .pages{
+@import "variables";
+
+.pokemon-list-container{
+        border: 2px solid $dark;
+        border-radius: 5px;
+        width: 100%;
+    .list-header{
         display: flex;
-        flex-wrap: wrap;
-        div{
-            border: 1px solid #3C2A21;
-            border-radius: 5px;
-            margin: 2px;
-            width: 25px;
-            text-align: center;
-            a{
-                text-decoration: none;
-                padding: 3px 5px;
-                color: black;
-            }
-            &:hover{
-               background-color: #DEF5E5; 
+        justify-content: center;
+        h1{       
+            font-family: 'Lato', sans-serif;     
+        }
+    }
+    .controls{
+        margin: 0 30px;
+        .search{
+            display: flex;
+            gap: 20px;
+            input{
+                width: 100%;
+                max-width: 400px;
             }
         }
     }
-}
-table{ 
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0 30px;
+    .pokemon-table{ 
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0 30px;
+        
+        thead{
+            background-color: $dark;
+            color: $light;
+        }
     
-    thead{
-        background-color: #3C2A21;
-        color: #ECECEC;
-        text-transform: uppercase;
-    }
-
-    td, th {
-        border-color: #3C2A21;
-        border-bottom: solid 0.5px;
-        padding: 7px;
-    }
-
-    tr{
-        cursor: pointer;
-        // transition: background-color 2s ease-out 100ms;
-        &:hover{
-            background-color: #DEF5E5;
+        td, th {
+            border-color: $dark;
+            border-bottom: solid 0.5px;
+            padding: 7px;
+            text-align: center;
         }
-    }   
+    
+        tr{
+            cursor: pointer;
+            background-color: $light;
+            &:hover{
+                background-color: $sky-blue;
+    
+            }
+        }   
+    }
+    .enumeration{
+        margin: 10px;
+        .pages{
+            display: flex;
+            flex-wrap: wrap;
+            div{
+                border: 1px solid $dark;
+                border-radius: 5px;
+                margin: 2px;
+                width: 30px;
+                text-align: center;
+                a{
+                    text-decoration: none;
+                    padding: 3px 5px;
+                    color: black;
+                }
+                &.active{
+                    background-color: $blue-g;
+                    a{
+                        color: $light;
+                    }
+                }
+                &:hover{
+                   background-color: $sky-blue;
+                   a{
+                       color: black;
+                   }
+                }
+            }
+        }
+    }
 }
+

@@ -24,7 +24,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   // Loaders
   public pokemonListLoader: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
-  public pokemonItemLoader: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+  public pokemonItemLoader: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public pokemonDictionary: {};
 
   public step = 30;
@@ -40,7 +40,7 @@ export class AppComponent implements OnInit, OnDestroy {
       switchMap(() => this.pokemonService.getAllPokemon(this.step, this.page)),
       tap(_ => this.pokemonListLoader.next(false)),
     ).subscribe((pokemon: PokemonResponseInterface) => {
-      this.pokemonDictionary = this.createDictionary(pokemon.results.map(pokemon => pokemon.name));
+      this.pokemonDictionary = this.createDictionary(pokemon.results.map(pokemon => pokemon.name).sort());
       this.pokemonList = pokemon;
     });
   }
@@ -53,10 +53,9 @@ export class AppComponent implements OnInit, OnDestroy {
   selectPokemon(name: string){
     this.pokemonItemLoader.next(true);
     this.pokemonService.getPokemonByName(name).pipe(first(), 
-      tap(_ => this.pokemonItemLoader.next(false)), 
       ).subscribe((item) => {
+        this.pokemonItemLoader.next(false);
         this.pokemonSelected = new PokemonClass(item);
-        console.warn('THIS IS THE POKEMON ITEM', this.pokemonSelected);
       })
   }
 

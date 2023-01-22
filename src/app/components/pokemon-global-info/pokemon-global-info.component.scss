@@ -1,0 +1,25 @@
+@import "variables";
+
+.resume{
+    .letters-container{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        .letter-item{
+            p{
+                span{
+                    font-family: $font-letter;
+                    font-size: 80px;
+                    color: $blue-g;
+                    margin-right: 2px;
+                }
+            }
+            margin: 5px;
+            width: 120px;
+        }
+    }
+    h2{
+        text-align: center;
+        text-transform: uppercase;
+    }
+}

@@ -1,9 +1,16 @@
-<h2>RESUMEN DE LA PAGINA ACTUAL</h2>
-<div *ngIf="!load">
-    <ul>
-        <li *ngFor="let letter of listKeys"> {{ letter + '(' + (pokemonDictionary[letter]).length + ')'}}</li>
-    </ul>
+<div class="resume">
+    <h2>Pokemons por letra de la página actual</h2>
+    <div *ngIf="!load">
+        <div class="letters-container">
+            <div class="letter-item" *ngFor="let letter of listKeys">
+                <p>
+                    <span class="letter">{{letter}}</span>
+                    ({{ (pokemonDictionary[letter]).length }})
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
 <div *ngIf="load">
-    <p>LOADER</p>
+    <app-loader></app-loader>
 </div>

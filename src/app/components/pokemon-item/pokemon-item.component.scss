@@ -1,9 +1,18 @@
+@import "variables";
+
 .pokemon-info{
+    border: 2px solid #1A120B;
+    border-radius: 5px;
+    width: 100%;
     .pokemon-title{
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 10px 0;
+        margin: 0;
+        font-size: 20px;
+        color: $light;
+        background-color: $blue-g;
+
         h2{
             text-transform: uppercase;        
         }
@@ -11,27 +20,40 @@
     .pokemon-data{
         .title-item{
             text-align: center;
-            text-transform: uppercase;
-            background-color: #3C2A21;
-            color: #ECECEC;
+            background-color: $dark;
+            color: $light;
             width: 100%;
         }
         .content-columns{
             display: grid;
             grid-template-columns: 1fr 1fr;
-            padding: 0px 30px;
+            padding: 10px 20px;
+            background-color: $sky-blue;
         }
         .stats{
-            div{
-                padding: 0px 30px;
-                display: grid;
-                grid-template-columns: 1fr 1fr 1fr;
+            table{
+                width: 100%;
+                border-collapse: collapse;
+                td, th {
+                    border: 1px solid #06283D;
+                    padding: 7px;
+                    text-align: center;
+                }
             }
         }
     }
-}
-.default-info{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    .default-info{
+        display: flex;
+        text-align: center;
+        align-items: center;
+        height: 900px;
+        width: 100%;
+        background-color: $blue-g;
+        p{
+            font-size: 30px;
+            padding: 20px;
+            font-weight: bold;
+            color: $light;
+        }
+    }
 }

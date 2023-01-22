@@ -1,32 +1,36 @@
-<div *ngIf="!load">
-  <h1>LISTA DE POKEMON</h1>
-  <div class="controls">
-    <div class="search">
-      <label for="">INTRODUZCA EL POKEMON A ENCONTRAR</label>
-      <input type="text">
+<div class="pokemon-list-container">
+  <div  *ngIf="!load">
+    <div class="list-header">
+      <h1>POKEMON TABLA </h1>
     </div>
-  </div>
-  <table>
-      <thead>
-        <th>Index</th>
-        <th>Nombre</th>
-        <th>Más información</th>
-      </thead>
-      <tr *ngFor="let item of listItems; let i = index" (click)="selectPokemon(item.name)">
-        <td>{{ i }}</td>
-        <td>{{ item.name }}</td>
-        <td>{{ item.url }}</td>
-      </tr>
-  </table>
-  <div class="enumeration">
-    <h3>Páginas</h3>
-    <div class="pages">  
-      <div *ngFor="let item of pages; let i = index">
-        <a [routerLink]="'/'" [queryParams]="{page: i + 1, step: currentStep}" >{{ i + 1 }}</a>
+    <div class="controls">
+      <div class="search">
+        <label for="">Pokemon: </label>
+        <input type="text">
+      </div>
+    </div>
+    <table class="pokemon-table">
+        <thead>
+          <th>Index</th>
+          <th>Nombre</th>
+          <th>Más información</th>
+        </thead>
+        <tr *ngFor="let item of listItems; let i = index" (click)="selectPokemon(item.name)">
+          <td>{{(((currentPage - 1) * currentStep) + i + 1) }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.url }}</td>
+        </tr>
+    </table>
+    <div class="enumeration">
+      <h3>Páginas</h3>
+      <div class="pages">  
+        <div *ngFor="let item of pages; let i = index" [ngClass]="{'active': currentPage == i + 1 }">
+          <a [routerLink]="'/'" [queryParams]="{page: i + 1, step: currentStep}" >{{ i + 1 }}</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div *ngIf="load">
-  <p>LOADER</p>
+  <div class="loader" *ngIf="load">
+    <app-loader></app-loader>
+  </div>
 </div>
