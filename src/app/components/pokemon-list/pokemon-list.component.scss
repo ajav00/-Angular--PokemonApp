@@ -29,6 +29,12 @@
             }
         }
     }
+    .not-result{
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     .pokemon-table{ 
         width: 100%;
         border-collapse: collapse;

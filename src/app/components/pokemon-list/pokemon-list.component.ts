@@ -15,6 +15,7 @@ export class PokemonListComponent {
   public pokemonSelected: string;
   public pokemonSearch: string = '';
   public filterValues: string[];
+  public listFilter: {name: string, url: string}[] = []; 
   
   public _response: PokemonResponseInterface;
   get response(): PokemonResponseInterface {
@@ -25,6 +26,8 @@ export class PokemonListComponent {
     if(value){
       this.total = value.count;
       this.listItems = value.results;
+      this.listFilter = value.results;
+      this.pokemonSearch = ''; 
       this.pages = [...new Array(Math.ceil(this.total / this.currentStep))];
     }
   }
@@ -54,10 +57,10 @@ export class PokemonListComponent {
   }
 
   onChangeInput(){
-    this.filterValues = this.pokemonSearch != '' ? this.listItems.map(el => el.name).filter(el => el.includes(this.pokemonSearch)).sort() : [];
+    this.filterValues = this.pokemonSearch != '' ? this.listItems.map(el => el.name).filter(el => el.includes(this.pokemonSearch.toLowerCase())).sort() : [];
+    this.listFilter = this.pokemonSearch != '' ? this.listItems.filter(el => el.name.includes(this.pokemonSearch.toLowerCase())) : [...this.listItems];
     if( this.listItems.map(el => el.name).includes(this.pokemonSearch)){
       this.filterValues = [];
-      this.pokemonEvent.emit(this.pokemonSearch);
     }  
   }
 
