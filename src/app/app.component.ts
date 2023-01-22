@@ -27,7 +27,7 @@ export class AppComponent implements OnInit, OnDestroy {
   public pokemonItemLoader: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public pokemonDictionary: {};
 
-  public step = 30;
+  public step = 35;
   public page = 1;
 
   constructor(private pokemonService: PokemonService, private router: Router, private activatedRoute: ActivatedRoute){ }

@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { filter } from 'rxjs';
 import { PokemonResponseInterface } from 'src/app/interfaces/response.interface';
 
 @Component({
@@ -12,6 +13,8 @@ export class PokemonListComponent {
   public pages: number[];  
   public total: number = 0;
   public pokemonSelected: string;
+  public pokemonSearch: string = '';
+  public filterValues: string[];
   
   public _response: PokemonResponseInterface;
   get response(): PokemonResponseInterface {
@@ -48,6 +51,14 @@ export class PokemonListComponent {
   selectPokemon(name: string){
     this.pokemonSelected = name;
     this.pokemonEvent.emit(name);
+  }
+
+  onChangeInput(){
+    this.filterValues = this.pokemonSearch != '' ? this.listItems.map(el => el.name).filter(el => el.includes(this.pokemonSearch)).sort() : [];
+    if( this.listItems.map(el => el.name).includes(this.pokemonSearch)){
+      this.filterValues = [];
+      this.pokemonEvent.emit(this.pokemonSearch);
+    }  
   }
 
 }
